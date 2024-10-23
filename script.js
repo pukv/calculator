@@ -33,9 +33,21 @@ const equalButton = document.querySelector('#equal')
 
 const decimalPoint = document.querySelector('#decimal')
 
+const bottomNumber = document.querySelector('.bottom-number')
+const topNumber = document.querySelector('.top-number')
+
 numbers.forEach(button => {
   button.addEventListener('click', (e) => {
     const clickedNumber = e.target.textContent;
-    screen.textContent += clickedNumber
+    bottomNumber.textContent += clickedNumber
+  })
+})
+
+operators.forEach(button => {
+  button.addEventListener('click', (e) => {
+    const clickedOperator = e.target.textContent
+    bottomNumber.textContent += clickedOperator;
+    topNumber.textContent +=  bottomNumber.textContent
+    bottomNumber.textContent = ''
   })
 })
