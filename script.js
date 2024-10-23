@@ -3,21 +3,13 @@ let secondNumber = ''
 let operator = ''
 
 
-const addition = function (a, b) {
-  return a + b
-};
+const addition = (a, b) => a + b
 
-const subtraction = function (a, b) {
-  return a - b
-}
+const subtraction = (a, b) => a - b
 
-const multiplication = function (a, b) {
-  return a * b
-}
+const multiplication = (a, b) => a * b
 
-const division = function (a, b) {
-  return a / b
-}
+const division = (a, b) => a / b;
 
 const operate = function(operator, num1, num2) {
   if (operator === '+') {
@@ -30,3 +22,20 @@ const operate = function(operator, num1, num2) {
     return division(num1, num2)
   }
 }
+
+const screen = document.querySelector('#screen')
+
+const numbers = document.querySelectorAll('.number')
+
+const operators = document.querySelectorAll('.operator')
+
+const equalButton = document.querySelector('#equal')
+
+const decimalPoint = document.querySelector('#decimal')
+
+numbers.forEach(button => {
+  button.addEventListener('click', (e) => {
+    const clickedNumber = e.target.textContent;
+    screen.textContent += clickedNumber
+  })
+})
