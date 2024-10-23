@@ -15,15 +15,22 @@ const operate = function(operator, num1, num2) {
   num1 = parseFloat(num1)
   num2 = parseFloat(num2)
 
+  let result;
+
   if (operator === '+') {
-    return addition(num1, num2)
+    result = addition(num1, num2)
   } else if (operator === '-') {
-    return subtraction(num1, num2)
+    result = subtraction(num1, num2)
   } else if (operator === 'x') {
-    return multiplication(num1, num2)
+    result = multiplication(num1, num2)
+  } else if (operator === '/' && num2 === 0) {
+    return 'Nice try smart guy, go back to school.'
   } else {
-    return division(num1, num2)
+    result = division(num1, num2)
   }
+
+  return Math.round((result + Number.EPSILON) * 100) / 100;
+
 }
 
 const screen = document.querySelector('#screen')
@@ -75,3 +82,9 @@ equalButton.addEventListener('click', () => {
   firstNumber = bottomNumber.textContent
   operator = ''
 })
+
+decimalPoint.addEventListener('click', () => {
+  if (!bottomNumber.textContent.includes('.')) { 
+    bottomNumber.textContent += '.';
+  }
+});
