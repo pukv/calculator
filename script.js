@@ -33,6 +33,8 @@ const equalButton = document.querySelector('#equal')
 
 const decimalPoint = document.querySelector('#decimal')
 
+const clearScreen = document.querySelector('#clear')
+
 const bottomNumber = document.querySelector('.bottom-number')
 const topNumber = document.querySelector('.top-number')
 
@@ -50,4 +52,12 @@ operators.forEach(button => {
     topNumber.textContent +=  bottomNumber.textContent
     bottomNumber.textContent = ''
   })
+})
+
+clearScreen.addEventListener('click', () => {
+  bottomNumber.textContent = ''
+  topNumber.textContent = ''
+  firstNumber = ''
+  secondNumber = ''
+  operator = ''
 })
